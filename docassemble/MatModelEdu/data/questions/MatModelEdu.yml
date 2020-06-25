@@ -1,0 +1,329 @@
+---
+metadata:
+  title: |
+    Maturity Model Report
+  short title: |
+    MatModRep
+  description: |
+    Maturity Model report generator
+  authors:
+    - name: Adam Tweed
+      organization: AbiltyNet
+  revision_date: 2020-06-05
+---
+sections:
+  - Introduction
+  - About you
+  - Questionnaire:
+    - Goals & Ambitions
+    - Responsibility
+    - Disability Model
+    - Focus of effort
+    - Skills & expertise
+    - Policy inclusion
+    - Culture
+    - Student experience
+  - Report
+---
+features:
+  navigation: False
+  progress bar: True
+  css: http://generate.abilitynet.org.uk/playgroundstatic/default/4/custom-css-bootstrap.css
+---
+field: intro_screen
+mandatory: True
+question: Maturity Model Snapshot Tool for HE/FE
+
+  ![Logo](http://generate.abilitynet.org.uk/playgroundstatic/default/4/AbilityNetMcNaught.png)
+video: |
+  [YOUTUBE smQGxn15Xm4]
+subquestion: |
+  This tool is built on an original concept developed by Alistair McNaught and extended
+  with support from AbilityNet.
+
+  You will be asked eight multiple choice questions on where you consider your institution to be on their accessibility journey. At the end we will generate a snapshot report of where you are now and where you can think about going next.
+  
+  The podcast below explains a bit more, or you can click the continue button underneath to get started!
+  
+  PLEASE NOTE: Accessibility is crucial to all the work we do. We are aware of some accessibility problems with this tool that we are working to resolve. However, we would still encourage you to [contact us](https://abilitynet.org.uk/how-contact-us) should you experience any difficulties. 
+section: Introduction
+---
+mandatory: True
+question: About you
+fields:
+  - Your institution: instit_name
+  - Your name: respondent
+  - I am happy to be contacted: contact
+    datatype: yesno
+  - Email: email_add
+    show if: contact
+    datatype: email
+    required: False
+section: About you
+progress: 10
+---
+code: |
+  risks = round ((driver + resp + dismod + effort + skills + policies + culture + stuex)/8)
+  matlev = round ((driver + resp + dismod + effort + skills + policies + culture + stuex)/8)
+  rskchk = (driver + resp + dismod + effort + skills + policies + culture + stuex)/8
+  matchk = (driver + resp + dismod + effort + skills + policies + culture + stuex)/8
+---
+mandatory: True
+question: 
+  Where do your main goals and ambitions stand at the moment?
+subquestion: This is your current motivation for implementing inclusive practice
+fields:
+    - no label: driver
+      input type: radio
+      datatype: integer
+      choices:
+       - Minimal effort/expense: 1
+         help: Reacting to challenges as they occur
+       - Support for individuals: 2
+         help: Focused on supporting individuals via a series of individual reasonable adjustments
+       - Legal compliance: 3
+         help: Seeking to comply with the equality act and Public Sector Accessibility Regulations
+       - Pedagogical excellence: 4
+         help: Seeking to create an inclusive learning experience
+       - Inclusive excellence: 5
+         help: Seeking to create a fully inclusive student experience   
+    - Any notes you want to make (optional): driver_comments
+      input type: area
+      required: False    
+section: Goals & Ambitions
+progress: 20
+---
+mandatory: True
+question: 
+  Who has responsibility for accessibility?
+fields:
+    - no label: resp
+      input type: radio
+      datatype: integer
+      choices:
+       - No-one: 1
+         help: Accessibility is not considered as a priority area that requires responsibility and ownership          
+       - Disability Team: 2
+         help: Accessibility is considered to be something that is fixed by the disability team via reasonable adjustments         
+       - Web Teams: 3 
+         help: Accessibility is considered to be a digital and technical activity        
+       - Whole Organisation: 4
+         help: Responsibility to ensure accessibility is understood to apply to all staff in the institution          
+       - Organisation & Stakeholders: 5
+         help: Responsibility to ensure accessibility is understood to apply to all staff in the institution and involve other stakeholders such as students and external suppliers and bodies    
+    - Any notes you want to make (optional): resp_comments
+      input type: area
+      required: False   
+section: Responsibility
+progress: 30
+---
+mandatory: True
+question: 
+  What model of disability do you consider your institution to follow?
+fields:
+    - no label: dismod
+      input type: radio
+      datatype: integer
+      choices:
+       - Invisibility: 1
+         help: Disability is considered to be something that is dealt with when it happens on a case by case basis 
+       - Medical: 2
+         help: Disability is considered in the medical model as a problem with the student that needs to be fixed via reasonable adjustments   
+       - Social by compliance: 3
+         help: The social model of disability (that people are disabled by their environment) is understood in the context of the legal requirement from the equality act  
+       - Social by conviction: 4
+         help: The social model of disability (that people are disabled by their environment) is understood and embraced  
+       - Social by collaboration: 5
+         help: The social model of disability is understood and embraced, and disabled students are engaged in co-creation and collaborative input
+    - Any notes you want to make (optional): dismod_comments
+      input type: area
+      required: False   
+section: Disability Model
+progress: 40
+---
+mandatory: True
+question: 
+  What do you consider your current focus of effort to be?
+fields:
+    - no label: effort
+      input type: radio
+      datatype: integer
+      choices:
+      - Justify non action or seek exemption: 1
+        help: When issues arise, our institution tends to look for the ‘get out’ or ‘reason it does not apply to us’  
+      - React to barriers: 2
+        help: We react as accessibility issues are highlighted with online fixes or offline work-arounds 
+      - Make websites inclusive: 3
+        help: We are focused on ensuring websites are usable for disabled and assistive technology users
+      - Make teaching and learning inclusive: 4
+        help: We are focused on ensuring the teaching experience online and offline is inclusive  
+      - Make everything inclusive: 5
+        help: We are focused on making the entire student experience inclusive 
+    - Any notes you want to make (optional): effort_comments
+      input type: area
+      required: False   
+section: Focus of effort
+progress: 50
+---
+mandatory: True
+question: 
+  How would you describe the skills and expertise at your institution?
+fields:
+    - no label: skills
+      input type: radio
+      datatype: integer
+      choices:
+      - Unidentified or existing only in a few individuals: 1
+        help: There are people with skills but not widely understood or utilised
+      - Knowledge is located in specialist disability and/or assistive technology teams: 2
+        help: We have some specialist roles that exist mostly in disabled student facing roles
+      - Skills available in pockets, or certain course areas have specific skills: 3
+        help: Patchy coverage where some departments and courses are very strong, others way behind
+      - Skills and awareness available across broader teams: 4
+        help: Coherent approach across teams with skilled ‘go-to’ individuals, nominated accessibility champions, and a good grounding for all
+      - Accessible practices broadly embraced as part of organisation's core professional values: 5
+        help: Accessibility skills and knowledge ‘baked in’ across the institution
+    - Any notes you want to make (optional): skills_comments
+      input type: area
+      required: False   
+section: Skills & expertise
+progress: 60
+---
+mandatory: True
+question: 
+  What policies do you consider to include accessibility?
+fields:
+    - no label: policies
+      input type: radio
+      datatype: integer
+      choices:
+      - Not in any policies: 1
+        help: Not a recognised element of any policies
+      - Disability policies: 2
+        help: Referenced in some disability related policies such as learning support plans
+      - IT, procurement & disability policies: 3
+        help: Standard element of all these areas of policy
+      - IT, procurement, disability & teaching/learning policies: 4
+        help: Digital accessibility is explicit and recognisable
+      - Wide range of policies (eg marketing/comms, teaching/learning, etc): 5
+        help: Accessibility is a standard element in wide range of relevant policies
+    - Any notes you want to make (optional): policies_comments
+      input type: area
+      required: False          
+section: Policy inclusion
+progress: 70
+---
+mandatory: True
+question: 
+  What do you consider your organisational culture to be?
+fields:
+    - no label: culture
+      input type: radio
+      datatype: integer
+      choices:
+      - Lack of understanding and therefore avoidance: 1
+        help: People don’t understand and therefore tend to avoid the topic
+      - Silos of expertise but few opportunities for skills transfer: 2
+        help: The culture is to defer to specific departments/experts
+      - Risk aversion: 3
+        help: An unwillingness to make intelligent comprommises that benefit groups with contrasting needs
+      - Encourages innovation. Permission to take risks: 4
+        help: Culture of pushing the boundaries to create inclusive environment
+      - Partnership, creativity & embedding good practice: 5
+        help: Engagement of disabled students, collaboration with other institutions, best practice and innovation
+    - Any notes you want to make (optional): culture_comments
+      input type: area
+      required: False   
+section: Culture
+progress: 80
+---
+mandatory: True
+question: |
+  What do you think your student experience of accessibility is?
+fields:
+    - no label: stuex
+      input type: radio
+      datatype: integer
+      choices:
+      - Student has to ask for and drive support mechanisms: 1
+        help: The student is obliged to come forward for support
+      - Proactive efforts from the disability team: 2
+        help: The student receives information and support from the disability team on digital accessibility
+      - Digital accessibility is evident in pockets but not joined up: 3
+        help: Some course teams and departments are great at this but not consistent
+      - Digital accessibility is mainstream and referenced from multiple locations: 4
+        help: Student digital experience is consistent and organised from an accessibility standpoint
+      - Students actively involved in shaping practice: 5
+        help: The institution has an organised approach to involving students in development and improvements
+    - Any notes you want to make (optional): stuex_comments
+      input type: area
+      required: False  
+section: Student experience
+progress: 90
+---
+question: |
+  Review your answers
+subquestion: |
+  Your report will be generated when you click to continue, but you can review your answers below before doing this.
+review:
+    - Goals & Ambitions: driver 
+      help: |
+          You answered that you are at level
+          ${ driver }
+    - Responsibility: resp
+      help: |
+          You answered that you are at level
+          ${ resp }
+    - Disability Model: dismod
+      help: |
+          You answered that you are at level
+          ${ dismod }
+    - Focus of effort: effort
+      help: |
+          You answered that you are at level
+          ${ effort }
+    - Skills & expertise: skills
+      help: |
+          You answered that you are at level
+          ${ skills }
+    - Policy inclusion: policies
+      help: |
+          You answered that you are at level
+          ${ policies }
+    - Culture: culture
+      help: |
+          You answered that you are at level
+          ${ culture }
+    - Student experience: stuex
+      help: |
+          You answered that you are at level
+          ${ stuex }
+continue button field: answers_reviewed
+---
+mandatory: True
+code: |
+  driver
+  resp
+  dismod
+  effort
+  skills
+  policies
+  culture
+  stuex
+  answers_reviewed
+  final_screen
+---
+mandatory: True
+event: final_screen
+question: |
+  Your report is available via the two links below, there is a pdf version and a docx.
+attachment:
+  name: Analysis Report
+  filename: Analysis Report
+  docx template file: EduGAP.docx
+  valid formats:
+    - pdf
+    - docx
+section: summary
+progress: 100
+allow emailing: False

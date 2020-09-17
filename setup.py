@@ -43,7 +43,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.MatModelEdu',
-      version='0.1.2',
+      version='0.1.3',
       description=('Maturity Model Snapshot Tool for HE/FE'),
       long_description='Maturity model for FE/HE snapshot generator',
       long_description_content_type='text/markdown',

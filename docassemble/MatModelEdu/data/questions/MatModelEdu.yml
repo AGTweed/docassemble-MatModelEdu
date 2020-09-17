@@ -45,14 +45,14 @@ subquestion: |
   
   The podcast below explains a bit more, or you can click the continue button underneath to get started!
   
-  PLEASE NOTE: Accessibility is crucial to all the work we do. We are aware of some accessibility problems with this tool that we are working to resolve. However, we would still encourage you to [contact us](https://abilitynet.org.uk/how-contact-us) should you experience any difficulties. 
+  PLEASE NOTE: Accessibility is crucial to all the work we do. We are aware of some accessibility problems with the help link content not being correctly announced by screen readers and are seeking to resolve this. However, we would still encourage you to [contact us](https://abilitynet.org.uk/how-contact-us) should you experience any difficulties. 
 section: Introduction
 ---
 mandatory: True
 question: About you
 fields:
-  - Your institution: instit_name
-  - Your name: respondent
+  - Your institution (required): instit_name
+  - Your name (optional): respondent
     required: False
 #  - I am happy to be contacted: contact
 #    datatype: yesno

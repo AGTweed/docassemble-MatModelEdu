@@ -53,12 +53,13 @@ question: About you
 fields:
   - Your institution: instit_name
   - Your name: respondent
-  - I am happy to be contacted: contact
-    datatype: yesno
-  - Email: email_add
-    show if: contact
-    datatype: email
     required: False
+#  - I am happy to be contacted: contact
+#    datatype: yesno
+#  - Email: email_add
+#    show if: contact
+#    datatype: email
+#    required: False
 section: About you
 progress: 10
 ---
@@ -87,7 +88,7 @@ fields:
          help: Seeking to create an inclusive learning experience
        - Inclusive excellence: 5
          help: Seeking to create a fully inclusive student experience   
-    - Any notes you want to make (optional): driver_comments
+    - "What makes you give that answer?": driver_comments
       input type: area
       required: False    
 section: Goals & Ambitions
@@ -111,7 +112,7 @@ fields:
          help: Responsibility to ensure accessibility is understood to apply to all staff in the institution          
        - Organisation & Stakeholders: 5
          help: Responsibility to ensure accessibility is understood to apply to all staff in the institution and involve other stakeholders such as students and external suppliers and bodies    
-    - Any notes you want to make (optional): resp_comments
+    - "What makes you give that answer?": resp_comments
       input type: area
       required: False   
 section: Responsibility
@@ -135,7 +136,7 @@ fields:
          help: The social model of disability (that people are disabled by their environment) is understood and embraced  
        - Social by collaboration: 5
          help: The social model of disability is understood and embraced, and disabled students are engaged in co-creation and collaborative input
-    - Any notes you want to make (optional): dismod_comments
+    - "What makes you give that answer?": dismod_comments
       input type: area
       required: False   
 section: Disability Model
@@ -159,7 +160,7 @@ fields:
         help: We are focused on ensuring the teaching experience online and offline is inclusive  
       - Make everything inclusive: 5
         help: We are focused on making the entire student experience inclusive 
-    - Any notes you want to make (optional): effort_comments
+    - "What makes you give that answer?": effort_comments
       input type: area
       required: False   
 section: Focus of effort
@@ -183,7 +184,7 @@ fields:
         help: Coherent approach across teams with skilled ‘go-to’ individuals, nominated accessibility champions, and a good grounding for all
       - Accessible practices broadly embraced as part of organisation's core professional values: 5
         help: Accessibility skills and knowledge ‘baked in’ across the institution
-    - Any notes you want to make (optional): skills_comments
+    - "What makes you give that answer?": skills_comments
       input type: area
       required: False   
 section: Skills & expertise
@@ -207,7 +208,7 @@ fields:
         help: Digital accessibility is explicit and recognisable
       - Wide range of policies (eg marketing/comms, teaching/learning, etc): 5
         help: Accessibility is a standard element in wide range of relevant policies
-    - Any notes you want to make (optional): policies_comments
+    - "What makes you give that answer?": policies_comments
       input type: area
       required: False          
 section: Policy inclusion
@@ -231,7 +232,7 @@ fields:
         help: Culture of pushing the boundaries to create inclusive environment
       - Partnership, creativity & embedding good practice: 5
         help: Engagement of disabled students, collaboration with other institutions, best practice and innovation
-    - Any notes you want to make (optional): culture_comments
+    - "What makes you give that answer?": culture_comments
       input type: area
       required: False   
 section: Culture
@@ -255,74 +256,22 @@ fields:
         help: Student digital experience is consistent and organised from an accessibility standpoint
       - Students actively involved in shaping practice: 5
         help: The institution has an organised approach to involving students in development and improvements
-    - Any notes you want to make (optional): stuex_comments
+    - "What makes you give that answer?": stuex_comments
       input type: area
       required: False  
 section: Student experience
 progress: 90
 ---
-question: |
-  Review your answers
-subquestion: |
-  Your report will be generated when you click to continue, but you can review your answers below before doing this.
-review:
-    - Goals & Ambitions: driver 
-      help: |
-          You answered that you are at level
-          ${ driver }
-    - Responsibility: resp
-      help: |
-          You answered that you are at level
-          ${ resp }
-    - Disability Model: dismod
-      help: |
-          You answered that you are at level
-          ${ dismod }
-    - Focus of effort: effort
-      help: |
-          You answered that you are at level
-          ${ effort }
-    - Skills & expertise: skills
-      help: |
-          You answered that you are at level
-          ${ skills }
-    - Policy inclusion: policies
-      help: |
-          You answered that you are at level
-          ${ policies }
-    - Culture: culture
-      help: |
-          You answered that you are at level
-          ${ culture }
-    - Student experience: stuex
-      help: |
-          You answered that you are at level
-          ${ stuex }
-continue button field: answers_reviewed
----
-mandatory: True
-code: |
-  driver
-  resp
-  dismod
-  effort
-  skills
-  policies
-  culture
-  stuex
-  answers_reviewed
-  final_screen
----
 mandatory: True
 event: final_screen
 question: |
-  Your report is available via the two links below, there is a pdf version and a docx.
+  Your report is available via the links below.
 attachment:
   name: Analysis Report
   filename: Analysis Report
   docx template file: EduGAP.docx
   valid formats:
-    - pdf
+#    - pdf
     - docx
 section: summary
 progress: 100
